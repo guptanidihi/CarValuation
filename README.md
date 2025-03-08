@@ -51,8 +51,6 @@ The input file should contain car registration numbers, and the output file shou
 
 Example of car_output.txt format:
 
-yaml
-Copy
 AB12 CDE, Toyota, Corolla, 2015
 XY34 ZYX, Honda, Civic, 2018
 Test Settings
@@ -61,9 +59,7 @@ Car Registration Number Pattern: The code expects registration numbers in the fo
 Running the Tests
 To run the tests, simply use the following command:
 
-bash
-Copy
-pytest test_car_valuation.py
+pytest -s tests/
 This will start the test suite, which will:
 
 Open a browser.
