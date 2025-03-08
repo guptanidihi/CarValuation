@@ -91,11 +91,6 @@ def test_car_valuation_match(page, file_pair):
         valuation_page.navigate(car_valuation_url)
         valuation_page.search_vehicle(reg_number)
 
-       # Check if the error message is shown for invalid reg numbers
-        if is_invalid_reg_error(page):
-            print(f"Error: Vehicle not found for registration number {reg_number}")
-            continue  # Skip further processing for this invalid reg number
-
         car_details = valuation_page.get_car_details()
         car_valuation_url = get_car_valuation_url()
         reg_numbers = extract_registration_numbers()
