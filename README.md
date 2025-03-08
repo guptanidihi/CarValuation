@@ -21,63 +21,45 @@ playwright: For browser automation.
 Install Dependencies
 Clone this repository:
 
-bash
-Copy
 git clone https://github.com/your-repository-url.git
 
-On Windows:
-bash
-Copy
-.\venv\Scripts\activate
-On Mac/Linux:
-bash
-Copy
-source venv/bin/activate
-Install the required dependencies:
-
-bash
-Copy
-pip install -r requirements.txt
-Install Playwright:
-
-bash
-Copy
-python -m playwright install
 Configuration
 Input and Output Files
-Input file (datafiles/car_input.txt): Contains the car registration numbers to search for.
+Input file (datafiles/car_input.txt): Contains the car registration numbers to search for and the search engine url.
 Output file (datafiles/car_output.txt): Contains the expected car details (make, model, and year) for comparison.
 The input file should contain car registration numbers, and the output file should contain a CSV-like format with expected details.
 
 Example of car_output.txt format:
 
-AB12 CDE, Toyota, Corolla, 2015
-XY34 ZYX, Honda, Civic, 2018
+VARIANT_REG,MAKE,MODEL,YEAR
+SG18 HTN,VOLKSWAGEN,GOLF SE NAVIGATION TSI EVO,2018
+AD58 VNF,BMW,120D M SPORT,2008
+
 Test Settings
 URL Pattern: The code is designed to extract a valid car valuation URL from the input file. If no URL is found, the default URL https://car-checking.com will be used.
 Car Registration Number Pattern: The code expects registration numbers in the format of UK vehicle plates (e.g., AB12 CDE).
+
 Running the Tests
 To run the tests, simply use the following command:
 
 pytest -s tests/
+
 This will start the test suite, which will:
 
 Open a browser.
 Navigate to the car valuation website.
 Search for each vehicle registration number.
 Compare the car details with the expected results.
+
 Debugging
 If you need to debug the tests, you can run Playwright in headful mode (non-headless) by modifying the browser.launch method in the browser fixture:
 
-python
-Copy
 browser = p.chromium.launch(headless=False)
 Test Results
 Once the tests have completed, the results will be displayed in the terminal, showing any mismatches between the actual car details and the expected values.
 
 Project Structure
-bash
-Copy
+
 /car-valuation
 │
 ├── datafiles/
@@ -88,9 +70,4 @@ Copy
 ├── car_valuation.py       # CarValuationPage class for interacting with the website
 ├── requirements.txt       # List of dependencies
 └── README.md              # This file
-License
-This project is licensed under the MIT License.
 
-Acknowledgements
-Playwright for browser automation.
-pytest for testing framework
