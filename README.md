@@ -7,21 +7,23 @@ This repository contains the code for automating car valuation tests using Playw
 
 The project performs the following steps:
 
-Extracts vehicle registration numbers from an input file.
-Navigates to a car valuation website using Playwright.
+Extracts all vehicle registration numbers from an input file.
+Extracts first car valuation website from the inout file.
+Navigates to the car valuation website using Playwright.
 Searches for vehicle details by the registration number.
 Compares actual car details (make, model, year) with the expected values from an output file.
 Handles errors if the car cannot be found.
+
 Prerequisites
 Before running the tests, make sure you have the following dependencies installed:
 
 Python 3.x
 pytest: To run the tests.
 playwright: For browser automation.
-Install Dependencies
-Clone this repository:
 
-git clone https://github.com/your-repository-url.git
+
+Clone this repository:
+git clone https://github.com/guptanidihi/CarValuation.git
 
 Configuration
 Input and Output Files
@@ -53,10 +55,10 @@ Compare the car details with the expected results.
 
 Debugging
 If you need to debug the tests, you can run Playwright in headful mode (non-headless) by modifying the browser.launch method in the browser fixture:
-
 browser = p.chromium.launch(headless=False)
+
 Test Results
-Once the tests have completed, the results will be displayed in the terminal, showing any mismatches between the actual car details and the expected values.
+It will show the car registration numbers for which car reg details not found on the comparison site or data mismatches and will fail the test.
 
 Project Structure
 
@@ -68,7 +70,6 @@ Project Structure
 │
 ├── test_car_valuation.py  # Test file with pytest test cases
 ├── car_valuation.py       # CarValuationPage class for interacting with the website
-├── requirements.txt       # List of dependencies
 └── README.md              # This file
 
 Note:
